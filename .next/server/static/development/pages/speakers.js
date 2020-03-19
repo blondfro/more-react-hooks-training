@@ -3406,9 +3406,28 @@ module.exports = /******/ (function(modules) {
             setSpeakingSunday = _useState4[1]; // const [speakerList, setSpeakerList] = useState([]);
 
           function speakersReducer(state, action) {
+            var updateFavorite = function updateFavorite(val) {
+              return state.map(function(item, index) {
+                if (item.id === action.sessionId) {
+                  item.favorite = val;
+                  return item;
+                }
+
+                return item;
+              });
+            };
+
             switch (action.type) {
               case "setSpeakerList": {
                 return action.data;
+              }
+
+              case "favorite": {
+                return updateFavorite(true);
+              }
+
+              case "unfavorite": {
+                return updateFavorite(false);
               }
 
               default:
@@ -3507,16 +3526,19 @@ module.exports = /******/ (function(modules) {
               e.target.attributes["data-sessionid"].value
             );
 
-            setSpeakerList(
-              speakerList.map(function(item) {
-                if (item.id === sessionId) {
-                  item.favorite = favoriteValue;
-                  return item;
-                }
-
-                return item;
-              })
-            ); //console.log("changing session favorte to " + favoriteValue);
+            dispatch({
+              type: favoriteValue === true ? "favorite" : "unfavorite",
+              sessionId: sessionId
+            }); // setSpeakerList(
+            //   speakerList.map(item => {
+            //     if (item.id === sessionId) {
+            //       item.favorite = favoriteValue;
+            //       return item;
+            //     }
+            //     return item;
+            //   })
+            // );
+            //console.log("changing session favorte to " + favoriteValue);
           };
 
           if (isLoading)
@@ -3525,7 +3547,7 @@ module.exports = /******/ (function(modules) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 93
+                  lineNumber: 114
                 },
                 __self: this
               },
@@ -3536,7 +3558,7 @@ module.exports = /******/ (function(modules) {
             {
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 96
+                lineNumber: 117
               },
               __self: this
             },
@@ -3545,7 +3567,7 @@ module.exports = /******/ (function(modules) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 97
+                  lineNumber: 118
                 },
                 __self: this
               }
@@ -3555,7 +3577,7 @@ module.exports = /******/ (function(modules) {
               {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 98
+                  lineNumber: 119
                 },
                 __self: this
               }
@@ -3566,7 +3588,7 @@ module.exports = /******/ (function(modules) {
                 className: "container",
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 99
+                  lineNumber: 120
                 },
                 __self: this
               },
@@ -3576,7 +3598,7 @@ module.exports = /******/ (function(modules) {
                   className: "btn-toolbar  margintopbottom5 checkbox-bigger",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 100
+                    lineNumber: 121
                   },
                   __self: this
                 },
@@ -3588,7 +3610,7 @@ module.exports = /******/ (function(modules) {
                         className: "hide",
                         __source: {
                           fileName: _jsxFileName,
-                          lineNumber: 102
+                          lineNumber: 123
                         },
                         __self: this
                       },
@@ -3598,7 +3620,7 @@ module.exports = /******/ (function(modules) {
                           className: "form-check-inline",
                           __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 103
+                            lineNumber: 124
                           },
                           __self: this
                         },
@@ -3608,7 +3630,7 @@ module.exports = /******/ (function(modules) {
                             className: "form-check-label",
                             __source: {
                               fileName: _jsxFileName,
-                              lineNumber: 104
+                              lineNumber: 125
                             },
                             __self: this
                           },
@@ -3621,7 +3643,7 @@ module.exports = /******/ (function(modules) {
                               checked: speakingSaturday,
                               __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 105
+                                lineNumber: 126
                               },
                               __self: this
                             }
@@ -3635,7 +3657,7 @@ module.exports = /******/ (function(modules) {
                           className: "form-check-inline",
                           __source: {
                             fileName: _jsxFileName,
-                            lineNumber: 114
+                            lineNumber: 135
                           },
                           __self: this
                         },
@@ -3645,7 +3667,7 @@ module.exports = /******/ (function(modules) {
                             className: "form-check-label",
                             __source: {
                               fileName: _jsxFileName,
-                              lineNumber: 115
+                              lineNumber: 136
                             },
                             __self: this
                           },
@@ -3658,7 +3680,7 @@ module.exports = /******/ (function(modules) {
                               checked: speakingSunday,
                               __source: {
                                 fileName: _jsxFileName,
-                                lineNumber: 116
+                                lineNumber: 137
                               },
                               __self: this
                             }
@@ -3674,7 +3696,7 @@ module.exports = /******/ (function(modules) {
                   className: "row",
                   __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 128
+                    lineNumber: 149
                   },
                   __self: this
                 },
@@ -3684,7 +3706,7 @@ module.exports = /******/ (function(modules) {
                     className: "card-deck",
                     __source: {
                       fileName: _jsxFileName,
-                      lineNumber: 129
+                      lineNumber: 150
                     },
                     __self: this
                   },
@@ -3706,7 +3728,7 @@ module.exports = /******/ (function(modules) {
                         bio: bio,
                         __source: {
                           fileName: _jsxFileName,
-                          lineNumber: 133
+                          lineNumber: 154
                         },
                         __self: this
                       }

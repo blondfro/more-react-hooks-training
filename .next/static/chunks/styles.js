@@ -32,7 +32,7 @@
                 if (!link.href.match(prefix) || link.stale) return;
                 injectCss(
                   link,
-                  link.href.split("?")[0] + "?unix=1584577299825"
+                  link.href.split("?")[0] + "?unix=1584577961012"
                 );
               });
           }
@@ -72,7 +72,7 @@
                 if (!link.href.match(prefix) || link.stale) return;
                 injectCss(
                   link,
-                  link.href.split("?")[0] + "?unix=1584577299915"
+                  link.href.split("?")[0] + "?unix=1584577961103"
                 );
               });
           }
@@ -112,7 +112,7 @@
                 if (!link.href.match(prefix) || link.stale) return;
                 injectCss(
                   link,
-                  link.href.split("?")[0] + "?unix=1584577299817"
+                  link.href.split("?")[0] + "?unix=1584577961001"
                 );
               });
           }
