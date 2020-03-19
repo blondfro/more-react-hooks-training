@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1527,11 +1527,12 @@ function speakers() {
 /*!********************!*\
   !*** ./src/App.js ***!
   \********************/
-/*! exports provided: default */
+/*! exports provided: ConfigContext, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigContext", function() { return ConfigContext; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home */ "./src/Home.js");
@@ -1540,40 +1541,53 @@ var _jsxFileName = "D:\\Training Files\\React\\Using React Hooks\\my code base\\
 
 
 
+var ConfigContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext();
 
 var pageToShow = function pageToShow(pageName) {
   if (pageName === "Home") return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 8
     },
     __self: this
   });
   if (pageName === "Speakers") return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Speakers__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 9
     },
     __self: this
   });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 10
     },
     __self: this
   }, "Not Found");
 };
 
+var configValue = {
+  showSpeakerSpeakingDays: false,
+  showSignMeUp: true
+};
+
 var App = function App(_ref) {
   var pageName = _ref.pageName;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(ConfigContext.Provider, {
+    value: configValue,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 20
     },
     __self: this
-  }, pageToShow(pageName));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
+  }, pageToShow(pageName)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -1970,10 +1984,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_toastify_dist_ReactToastify_css__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-toastify */ "react-toastify");
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_toastify__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./App */ "./src/App.js");
 
 
 
 var _jsxFileName = "D:\\Training Files\\React\\Using React Hooks\\my code base\\more-react-hooks\\src\\SignMeUp.js";
+
 
 
 
@@ -2001,6 +2017,8 @@ var SignMeUp = function SignMeUp(_ref) {
       sendProcessing = _useState6[0],
       setSendProcessing = _useState6[1];
 
+  var context = Object(react__WEBPACK_IMPORTED_MODULE_3__["useContext"])(_App__WEBPACK_IMPORTED_MODULE_6__["ConfigContext"]);
+
   function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(email);
@@ -2027,30 +2045,30 @@ var SignMeUp = function SignMeUp(_ref) {
 
   var buttonText = sendProcessing ? "processing..." : "Get Updates"; //console.log("src/SignMeUp called");
 
-  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+  return context === false ? null : react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 47
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 48
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_5__["ToastContainer"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 49
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "content",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 50
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("input", (_React$createElement = {
@@ -2065,7 +2083,7 @@ var SignMeUp = function SignMeUp(_ref) {
     required: true
   }, Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$createElement, "required", true), Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$createElement, "__source", {
     fileName: _jsxFileName,
-    lineNumber: 47
+    lineNumber: 51
   }), Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(_React$createElement, "__self", this), _React$createElement)), "\xA0", react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("button", {
     disabled: !emailValid || sendProcessing,
     className: "btn",
@@ -2073,7 +2091,7 @@ var SignMeUp = function SignMeUp(_ref) {
     type: "submit",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 64
     },
     __self: this
   }, buttonText))));
@@ -2319,11 +2337,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _src_Menu__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../src/Menu */ "./src/Menu.js");
 /* harmony import */ var _SpeakerData__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./SpeakerData */ "./src/SpeakerData.js");
 /* harmony import */ var _SpeakerDetail__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./SpeakerDetail */ "./src/SpeakerDetail.js");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./App */ "./src/App.js");
 
 
 
 
 var _jsxFileName = "D:\\Training Files\\React\\Using React Hooks\\my code base\\more-react-hooks\\src\\Speakers.js";
+
 
 
 
@@ -2355,6 +2375,7 @@ var Speakers = function Speakers(_ref) {
       isLoading = _useState8[0],
       setIsLoading = _useState8[1];
 
+  var context = Object(react__WEBPACK_IMPORTED_MODULE_4__["useContext"])(_App__WEBPACK_IMPORTED_MODULE_11__["ConfigContext"]);
   Object(react__WEBPACK_IMPORTED_MODULE_4__["useEffect"])(function () {
     setIsLoading(true);
     new _babel_runtime_corejs2_core_js_promise__WEBPACK_IMPORTED_MODULE_1___default.a(function (resolve) {
@@ -2417,61 +2438,61 @@ var Speakers = function Speakers(_ref) {
   if (isLoading) return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 75
     },
     __self: this
   }, "Loading...");
   return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 78
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_src_Header__WEBPACK_IMPORTED_MODULE_7__["Header"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 79
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_src_Menu__WEBPACK_IMPORTED_MODULE_8__["Menu"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 77
+      lineNumber: 80
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 78
+      lineNumber: 81
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "btn-toolbar  margintopbottom5 checkbox-bigger",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 82
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
+  }, context.showSpeakerSpeakingDays === false ? null : react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "hide",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 84
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "form-check-inline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 81
+      lineNumber: 85
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("label", {
     className: "form-check-label",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 82
+      lineNumber: 86
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
@@ -2481,21 +2502,21 @@ var Speakers = function Speakers(_ref) {
     checked: speakingSaturday,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 83
+      lineNumber: 87
     },
     __self: this
   }), "Saturday Speakers")), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "form-check-inline",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 92
+      lineNumber: 96
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("label", {
     className: "form-check-label",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 93
+      lineNumber: 97
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("input", {
@@ -2505,21 +2526,21 @@ var Speakers = function Speakers(_ref) {
     checked: speakingSunday,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 94
+      lineNumber: 98
     },
     __self: this
   }), "Sunday Speakers")))), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105
+      lineNumber: 111
     },
     __self: this
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "card-deck",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 112
     },
     __self: this
   }, speakerListFiltered.map(function (_ref4) {
@@ -2538,7 +2559,7 @@ var Speakers = function Speakers(_ref) {
       bio: bio,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 110
+        lineNumber: 116
       },
       __self: this
     });
@@ -2560,7 +2581,7 @@ var Speakers = function Speakers(_ref) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 5:
 /*!*********************************!*\
   !*** multi ./pages/speakers.js ***!
   \*********************************/
